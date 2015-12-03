@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^term/$', 'ecommerce2.views.term', name='term'),
     url(r'^gallery/$', 'ecommerce2.views.gallery', name='gallery'),
     url(r'^dashboard/$', 'ecommerce2.views.dashboard', name='dashboard'),
-    url(r'^history/$', 'ecommerce2.views.blank', name='history'),
+    #url(r'^history/$', 'ecommerce2.views.blank', name='history'),
 
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'products.views.home', name='home'),
@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')), 
     #url(r'^items/', include('items.urls')),
     url(r'^item/', include('item.urls')),
+    url(r'^history/$', 'products.views.post_list', name='post_list'),
 ]
 
 if settings.DEBUG:

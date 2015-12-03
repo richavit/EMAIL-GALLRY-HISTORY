@@ -2,13 +2,15 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import django.utils.timezone
 import products.models
+import django.utils.timezone
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -26,6 +28,7 @@ class Migration(migrations.Migration):
                 ('date_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('date_Update', models.DateTimeField(null=True, blank=True)),
                 ('expire_date', models.DateTimeField(null=True, blank=True)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -51,7 +54,6 @@ class Migration(migrations.Migration):
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('start_date', models.DateTimeField(null=True, blank=True)),
                 ('end_date', models.DateTimeField(null=True, blank=True)),
-                ('product', models.ForeignKey(to='products.Product')),
             ],
             options={
                 'ordering': ['order', '-start_date', '-end_date'],

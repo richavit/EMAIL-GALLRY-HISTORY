@@ -44,13 +44,6 @@ if not settings.DEBUG:
 	ALLOWED_HOSTS = ['cfedeploy.webfactional.com', 'trydjango.com', 'www.trydjango.com']
 	#purchasing domain name http://name.com
 
-	
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'vinaykumar.vk2007@gmail.com'
-EMAIL_HOST_PASSWORD = '8090289260'
-EMAIL_PORT = 587
-
 	''' 
 	If using gmail, you will need to
 	unlock Captcha to enable Django 

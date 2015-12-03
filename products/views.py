@@ -12,6 +12,8 @@ from .forms import VariationInventoryForm
 from .models import Product, Variation
 from .models import Slider
 from .models import Product
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 # Create your views here.
 #################################################################################
@@ -113,4 +115,10 @@ class ProductDetailView(DetailView):
         return render(request, template, context)
 
 ########################################################################################
+
+def post_list(request):
+    model = Product, User
+    posts = Product.objects.filter(user_id = request.user.id)
+    return render(request, 'history/post_list.html', {'posts': posts})
+
 
